@@ -14,6 +14,8 @@
                 "${workspaceFolder}\\Files\\Source\\GameGui.cpp",
                 "${workspaceFolder}\\Files\\Source\\Player.cpp",
                 "${workspaceFolder}\\Files\\Source\\Room.cpp",
+                "${workspaceFolder}\\Files\\Source\\Entity.cpp",
+                "${workspaceFolder}\\Files\\Source\\Game.cpp",
                 //"${workspaceFolder}\\Files\\Source\\Rules.cpp",
                 //"${workspaceFolder}\\Files\\Source\\Map.cpp",
                 "-o",

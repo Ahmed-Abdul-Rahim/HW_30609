@@ -1,27 +1,29 @@
 #include "../Headers/Player.h"
 
-Player::Player() : hp(200), stamina(100), equippedWeapon("Bow") {
+Player::Player() : Entity("Player", 200), stamina(100), equippedWeapon("Bow") {
     inventory.push_back("Arrow");
 }
 
-void Player::takeDamage(int dmg) {
-    hp -= dmg;
-    if (hp < 0) hp = 0;
-    cout << RED << "You took " << dmg << " damage! HP: " << hp << RESET << endl;
+void Player::attack(Entity& target) {
+
+}
+
+void Player::update() {
+
 }
 
 void Player::restoreHealth(int amount) {
     hp += amount;
-    if (hp > 150) hp = 150;
-    cout << GREEN << "You healed " << amount << " HP! HP: " << hp << RESET << endl;
+    if (hp > 200) hp = 200;
+    std::cout << GREEN << "You healed " << amount << " HP! HP: " << hp << RESET << std::endl;
 }
 
-void Player::addItem(string item) {
+void Player::addItem(std::string item) {
     inventory.push_back(item);
-            cout << YELLOW << "Picked up: " << item << RESET << endl;
+    std::cout << YELLOW << "Picked up: " << item << RESET << std::endl;
 }
 
-bool Player::hasItem(string item) {
+bool Player::hasItem(std::string item) {
     for (auto &i : inventory) {
         if (i == item) return true;
     }
@@ -29,28 +31,16 @@ bool Player::hasItem(string item) {
 }
 
 void Player::displayStats() {
-    cout << GREEN << "HP: " << hp << " | Stamina: " << stamina << " | Weapon: " << equippedWeapon << RESET << endl;
+    std::cout << GREEN << "HP: " << hp << " | Stamina: " << stamina << " | Weapon: " << equippedWeapon << RESET << std::endl;
 }
 
 void Player::viewInventory() {
-    cout << BLUE << "\n--- Inventory ---" << RESET << endl;
+    std::cout << BLUE << "\n--- Inventory ---" << RESET << std::endl;
     if (inventory.empty()) {
-        cout << YELLOW << "Your inventory is empty!" << RESET << endl;
+        std::cout << YELLOW << "Your inventory is empty!" << RESET << std::endl;
     } else {
-        for (const string &item : inventory) {
-            cout << YELLOW << "- " << item << RESET << endl;
+        for (const std::string &item : inventory) {
+            std::cout << YELLOW << "- " << item << RESET << std::endl;
         }
     }
 }
-
-bool Player::isAlive() {
-    return hp > 0;
-}
-
-    
-                     
-          
-            
-       
-      
-    
